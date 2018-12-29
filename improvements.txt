@@ -1,0 +1,16 @@
+improvements
+
+-> Changes apply in search box. rather than user type full city name now using autosuggest its popup the city name automatially and
+reflect in map with selected area
+
+-> update to the navigation panel 
+passing textbox value to another page for navigation purpose does not implement thats why 
+there is copy text button for user so when user select pushpin it will copy the waterfall name 
+and than redirect to naigation panel on other page
+
+
+-> showin use the current cordinate rather than you are here (ex.hamilton,ontario)
+this thing fulfill under search bar
+
+-> changes in user interface design as pe few people feedback after usablitiy testing 
+
