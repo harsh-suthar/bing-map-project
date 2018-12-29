@@ -1,0 +1,1311 @@
+<html lang="en" class="gr__csunix_mohawkcollege_ca">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Waterfall finder</title>
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- styles -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/demo.css" rel="stylesheet">
+
+    <!-- Add IntroJs styles -->
+    <link href="introjs.css" rel="stylesheet">
+
+    <link href="/assets/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <script type="text/javascript" src="intro.js"></script>
+	 
+    <script type="text/javascript">
+	 
+        function startIntro() {
+            var intro = introJs();
+            intro.setOptions({
+                steps: [{
+                    element: '#step1',
+                    intro: "This is a <b>Map of city</b>."
+                }, {
+                    element: '#step2',
+                    intro: "Search bar for city search",
+                    position: 'right'
+                }, {
+                    element: '#step3',
+                    intro: 'Information of waterfall like parking and food details',
+                    position: 'left'
+                }, {
+                    element: '#step4',
+                    intro: "Your Current Location and Navigation to waterfall",
+                    position: 'bottom'
+                }, {
+                    element: '#step5',
+                    intro: 'Share to your friend and family member'
+                }, {
+                    element: '#step6',
+                    intro: 'Design and develop by harsh suthar- 000743543'
+                }]
+            });
+
+            intro.start();
+        }
+    </script>
+    <script type='text/javascript'>
+        var pushpinInfos = [{
+            "name": "Lewis Rd. East Falls",
+            "city": "Stoney Creek",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Stoney Creek-Winona",
+            "HEIGHT_IN_M": 8,
+            "WIDTH_IN_M": 5,
+            "OWNERSHIP": "private",
+            "address": "McNeilly Rd.",
+            "longtitude": -79.66503317,
+            "latitude": 43.20112684
+        }, {
+            "name": "Little Falls",
+            "city": "Ancaster",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Tiffany-Coldwater",
+            "HEIGHT_IN_M": 7,
+            "WIDTH_IN_M": 3,
+            "OWNERSHIP": "public",
+            "address": "Wilson St. E.",
+            "longtitude": -79.96557853,
+            "latitude": 43.23954666
+        }, {
+            "name": "Tiffany Falls",
+            "city": "Ancaster",
+            "TYPE": "Waterfall",
+            "RANKING": "A",
+            "CLUSTER_AREA": "Tiffany-Coldwater",
+            "HEIGHT_IN_M": 21,
+            "WIDTH_IN_M": 6,
+            "OWNERSHIP": "public",
+            "address": "Wilson St. E. / Tiffany Falls CA",
+            "longtitude": -79.95811365,
+            "latitude": 43.23816424
+        }, {
+            "name": "Scenic Falls",
+            "city": "Hamilton",
+            "TYPE": "Cascade",
+            "RANKING": "A",
+            "CLUSTER_AREA": "Chedoke-Scenic",
+            "HEIGHT_IN_M": 20,
+            "WIDTH_IN_M": 6,
+            "OWNERSHIP": "public",
+            "address": "Scenic Dr. / Chedoke Radial Trail Head",
+            "longtitude": -79.93480506,
+            "latitude": 43.24418075
+        }, {
+            "name": "Lower Princess Falls",
+            "city": "Hamilton",
+            "TYPE": "Cascade",
+            "RANKING": "A",
+            "CLUSTER_AREA": "Chedoke-Scenic",
+            "HEIGHT_IN_M": 39.5,
+            "WIDTH_IN_M": 3,
+            "OWNERSHIP": "public",
+            "address": "Hwy 403",
+            "longtitude": -79.92992126,
+            "latitude": 43.24593608
+        }, {
+            "name": "Princess Falls",
+            "city": "Hamilton",
+            "TYPE": "Waterfall",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Chedoke-Scenic",
+            "HEIGHT_IN_M": 7,
+            "WIDTH_IN_M": 2,
+            "OWNERSHIP": "public",
+            "address": "Scenic Dr. / Chedoke Radial Trail Land",
+            "longtitude": -79.929923,
+            "latitude": 43.24583705
+        }, {
+            "name": "Upper Sanatorium Falls",
+            "city": "Hamilton",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Chedoke-Mountview",
+            "HEIGHT_IN_M": 9,
+            "WIDTH_IN_M": 3,
+            "OWNERSHIP": "public",
+            "address": "Sanatorium Rd. / Chedoke Civic Golf Course",
+            "longtitude": -79.91470174,
+            "latitude": 43.24494626
+        }, {
+            "name": "Lower Sanatorium Cascade",
+            "city": "Hamilton",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Chedoke-Mountview",
+            "HEIGHT_IN_M": 4,
+            "WIDTH_IN_M": 3,
+            "OWNERSHIP": "public",
+            "address": "Beddoe Dr. / Chedoke Civic Golf Course",
+            "longtitude": -79.9149543,
+            "latitude": 43.24598418
+        }, {
+            "name": "Mountview Falls",
+            "city": "Hamilton",
+            "TYPE": "Cascade",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Chedoke-Mountview",
+            "HEIGHT_IN_M": 10,
+            "WIDTH_IN_M": 6,
+            "OWNERSHIP": "public",
+            "address": "Scenic Dr. / Chedoke Radial Trail Land",
+            "longtitude": -79.92144207,
+            "latitude": 43.24549626
+        }, {
+            "name": "Lower Westcliffe Falls",
+            "city": "Hamilton",
+            "TYPE": "Cascade",
+            "RANKING": "B",
+            "CLUSTER_AREA": "West Chedoke",
+            "HEIGHT_IN_M": 9,
+            "WIDTH_IN_M": 6,
+            "OWNERSHIP": "public",
+            "address": "Beddoe Dr. / Chedoke Civic Golf Course",
+            "longtitude": -79.90841884,
+            "latitude": 43.24568788
+        }, {
+            "name": "Lower Cliffview Falls",
+            "city": "Hamilton",
+            "TYPE": "Cascade",
+            "RANKING": "B",
+            "CLUSTER_AREA": "West Chedoke",
+            "HEIGHT_IN_M": 4,
+            "WIDTH_IN_M": 3,
+            "OWNERSHIP": "public",
+            "address": "Beddoe Dr. / Chedoke Civic Golf Course",
+            "longtitude": -79.90835759,
+            "latitude": 43.24566929
+        }, {
+            "name": "Westcliffe Falls",
+            "city": "Hamilton",
+            "TYPE": "Cascade",
+            "RANKING": "A",
+            "CLUSTER_AREA": "West Chedoke",
+            "HEIGHT_IN_M": 15,
+            "WIDTH_IN_M": 2,
+            "OWNERSHIP": "public",
+            "address": "Beddoe Dr. / Chedoke Civic Golf Course",
+            "longtitude": -79.90852251,
+            "latitude": 43.24540072
+        }, {
+            "name": "Cliffview Falls",
+            "city": "Hamilton",
+            "TYPE": "Cascade",
+            "RANKING": "A",
+            "CLUSTER_AREA": "West Chedoke",
+            "HEIGHT_IN_M": 15,
+            "WIDTH_IN_M": 3,
+            "OWNERSHIP": "public",
+            "address": "Beddoe Dr. / Chedoke Civic Golf Course / Scenic Dr. / Cliffview Park",
+            "longtitude": -79.90785311,
+            "latitude": 43.24425975
+        }, {
+            "name": "Lower Chedoke Falls",
+            "city": "Hamilton",
+            "TYPE": "Cascade",
+            "RANKING": "A",
+            "CLUSTER_AREA": "Chedoke",
+            "HEIGHT_IN_M": 6,
+            "WIDTH_IN_M": 11,
+            "OWNERSHIP": "public",
+            "address": "Beddoe Dr. / Chedoke Civic Golf Course",
+            "longtitude": -79.90041368,
+            "latitude": 43.24424251
+        }, {
+            "name": "Chedoke Falls",
+            "city": "Hamilton",
+            "TYPE": "Waterfall",
+            "RANKING": "A",
+            "CLUSTER_AREA": "Chedoke",
+            "HEIGHT_IN_M": 18,
+            "WIDTH_IN_M": 9,
+            "OWNERSHIP": "public",
+            "address": "Beddoe Dr. / Chedoke Civic Golf Course / Scenic Dr",
+            "longtitude": -79.90065606,
+            "latitude": 43.24172355
+        }, {
+            "name": "Upper Glendale Falls",
+            "city": "Hamilton",
+            "TYPE": "Waterfall",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Red Hill",
+            "HEIGHT_IN_M": 3,
+            "WIDTH_IN_M": 3,
+            "OWNERSHIP": "public",
+            "address": "Kingsview Dr.",
+            "longtitude": -79.80966287,
+            "latitude": 43.20227306
+        }, {
+            "name": "Buttermilk Falls",
+            "city": "Hamilton",
+            "TYPE": "Waterfall",
+            "RANKING": "A",
+            "CLUSTER_AREA": "Red Hill",
+            "HEIGHT_IN_M": 23,
+            "WIDTH_IN_M": 8,
+            "OWNERSHIP": "public",
+            "address": "Mountain Brow Blvd. / Oak-Knoll Park",
+            "longtitude": -79.81957437,
+            "latitude": 43.20532028
+        }, {
+            "name": "Albion Falls",
+            "city": "Hamilton",
+            "TYPE": "Cascade",
+            "RANKING": "A",
+            "CLUSTER_AREA": "Red Hill",
+            "HEIGHT_IN_M": 19,
+            "WIDTH_IN_M": 18,
+            "OWNERSHIP": "public",
+            "address": "Mountain Brow Blvd. / King's Forest Park",
+            "longtitude": -79.81963258,
+            "latitude": 43.20038634
+        }, {
+            "name": "Little Davis Falls",
+            "city": "Hamilton",
+            "TYPE": "Waterfall",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Felker",
+            "HEIGHT_IN_M": 3,
+            "WIDTH_IN_M": 8,
+            "OWNERSHIP": "public",
+            "address": "Quigley Rd.",
+            "longtitude": -79.78891992,
+            "latitude": 43.20674674
+        }, {
+            "name": "Felker's Falls",
+            "city": "Hamilton",
+            "TYPE": "Waterfall",
+            "RANKING": "A",
+            "CLUSTER_AREA": "Felker",
+            "HEIGHT_IN_M": 22,
+            "WIDTH_IN_M": 6,
+            "OWNERSHIP": "public",
+            "address": "Ackland St. / Felker's Falls CA",
+            "longtitude": -79.79015317,
+            "latitude": 43.20351812
+        }, {
+            "name": "Billy Green Falls",
+            "city": "Stoney Creek",
+            "TYPE": "Waterfall",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Glover-Battlefield",
+            "HEIGHT_IN_M": 17,
+            "WIDTH_IN_M": 6,
+            "OWNERSHIP": "public",
+            "address": "Centennial Pky.",
+            "longtitude": -79.76656783,
+            "latitude": 43.20722828
+        }, {
+            "name": "Harvey Falls",
+            "city": "Stoney Creek",
+            "TYPE": "Waterfall",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Stoney Creek-Winona",
+            "HEIGHT_IN_M": 16,
+            "WIDTH_IN_M": 3,
+            "OWNERSHIP": "private",
+            "address": "Fifty Rd.",
+            "longtitude": -79.65919249,
+            "latitude": 43.20029313
+        }, {
+            "name": "Promontory Falls",
+            "city": "Stoney Creek",
+            "TYPE": "Waterfall",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Stoney Creek-Winona",
+            "HEIGHT_IN_M": 18,
+            "WIDTH_IN_M": 1,
+            "OWNERSHIP": "private",
+            "address": "Fifty Rd.",
+            "longtitude": -79.65216768,
+            "latitude": 43.19846368
+        }, {
+            "name": "Jones Rd. Falls",
+            "city": "Stoney Creek",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Stoney Creek-Vinemount",
+            "HEIGHT_IN_M": 6,
+            "WIDTH_IN_M": 2,
+            "OWNERSHIP": "private",
+            "address": "McNeilly Rd.",
+            "longtitude": -79.69561844,
+            "latitude": 43.20352374
+        }, {
+            "name": "Upper Quarry Cascade",
+            "city": "Flamborough",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Quarry",
+            "HEIGHT_IN_M": 4,
+            "WIDTH_IN_M": 1.2,
+            "OWNERSHIP": "private",
+            "address": "Mountain Brow Rd.",
+            "longtitude": -79.90643033,
+            "latitude": 43.3134191
+        }, {
+            "name": "Lower Hopkins Cascade",
+            "city": "Flamborough",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Borer's",
+            "HEIGHT_IN_M": 6,
+            "WIDTH_IN_M": 3.5,
+            "OWNERSHIP": "public",
+            "address": "Valley Rd.",
+            "longtitude": -79.92924216,
+            "latitude": 43.29663443
+        }, {
+            "name": "Rock Chapel Falls",
+            "city": "Flamborough",
+            "TYPE": "Waterfall",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Borer's",
+            "HEIGHT_IN_M": 8,
+            "WIDTH_IN_M": 1.5,
+            "OWNERSHIP": "public",
+            "address": "Rock Chapel Rd.",
+            "longtitude": -79.93659946,
+            "latitude": 43.29112026
+        }, {
+            "name": "Dyment Falls",
+            "city": "Flamborough",
+            "TYPE": "Waterfall",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Sydenham",
+            "HEIGHT_IN_M": 15.7,
+            "WIDTH_IN_M": 4,
+            "OWNERSHIP": "public",
+            "address": "Sydenham Rd. lookout",
+            "longtitude": -79.949149,
+            "latitude": 43.27818867
+        }, {
+            "name": "East Greensville Falls",
+            "city": "Flamborough",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Spencer-Logie's",
+            "HEIGHT_IN_M": 5.5,
+            "WIDTH_IN_M": 1.5,
+            "OWNERSHIP": "public",
+            "address": "Crooks Hollow Rd / Crooks Hollow CA",
+            "longtitude": -79.9914501,
+            "latitude": 43.27943392
+        }, {
+            "name": "East Iroquoia Falls",
+            "city": "Hamilton",
+            "TYPE": "Waterfall",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Chedoke-Scenic",
+            "HEIGHT_IN_M": 20,
+            "WIDTH_IN_M": 1.2,
+            "OWNERSHIP": "public",
+            "address": "Hwy 403",
+            "longtitude": -79.93857606,
+            "latitude": 43.24478309
+        }, {
+            "name": "Veevers Falls",
+            "city": "Hamilton",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Felker",
+            "HEIGHT_IN_M": 14,
+            "WIDTH_IN_M": 2.5,
+            "OWNERSHIP": "private",
+            "address": "Greenhill Ave.",
+            "longtitude": -79.78090203,
+            "latitude": 43.20819236
+        }, {
+            "name": "Centennial Falls",
+            "city": "Stoney Creek",
+            "TYPE": "Cascade",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Glover-Battlefield",
+            "HEIGHT_IN_M": 10,
+            "WIDTH_IN_M": 4,
+            "OWNERSHIP": "public",
+            "address": "Centennial Pky.",
+            "longtitude": -79.76849679,
+            "latitude": 43.20863578
+        }, {
+            "name": "Patterson West Cascade",
+            "city": "Dundas",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Borer's",
+            "HEIGHT_IN_M": 4.3,
+            "WIDTH_IN_M": 1.2,
+            "OWNERSHIP": "public",
+            "address": "Patterson Road",
+            "longtitude": -79.92770312,
+            "latitude": 43.29792567
+        }, {
+            "name": "Patterson East Cascade",
+            "city": "Dundas",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Borer's",
+            "HEIGHT_IN_M": 4.6,
+            "WIDTH_IN_M": 1.5,
+            "OWNERSHIP": "public",
+            "address": "Patterson Road",
+            "longtitude": -79.92708269,
+            "latitude": 43.29815397
+        }, {
+            "name": "Auchmar Falls",
+            "city": "Hamilton",
+            "TYPE": "Waterfall",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Chedoke",
+            "HEIGHT_IN_M": 12,
+            "WIDTH_IN_M": 1.5,
+            "OWNERSHIP": "public",
+            "address": "Beckett Drive",
+            "longtitude": -79.89116304,
+            "latitude": 43.24357691
+        }, {
+            "name": "Lewis Rd. West Falls",
+            "city": "Stoney Creek",
+            "TYPE": "Waterfall",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Stoney Creek-Winona",
+            "HEIGHT_IN_M": 9,
+            "WIDTH_IN_M": 3,
+            "OWNERSHIP": "private",
+            "address": "McNeilly Rd.",
+            "longtitude": -79.66581823,
+            "latitude": 43.20068576
+        }, {
+            "name": "Beckett Falls",
+            "city": "Hamilton",
+            "TYPE": "Waterfall",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Chedoke",
+            "HEIGHT_IN_M": 3,
+            "WIDTH_IN_M": 1.2,
+            "OWNERSHIP": "public",
+            "address": "Beckett Drive",
+            "longtitude": -79.88584309,
+            "latitude": 43.2448669
+        }, {
+            "name": "Grand Cascade",
+            "city": "Stoney Creek",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Stoney Creek-Winona",
+            "HEIGHT_IN_M": 4,
+            "WIDTH_IN_M": 1,
+            "OWNERSHIP": "private",
+            "address": "Fifty Rd.",
+            "longtitude": -79.6493195,
+            "latitude": 43.19701636
+        }, {
+            "name": "West of Fifty Upper Cascade",
+            "city": "Stoney Creek",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Stoney Creek-Winona",
+            "HEIGHT_IN_M": 8,
+            "WIDTH_IN_M": 1.5,
+            "OWNERSHIP": "public",
+            "address": "Fifty Rd.",
+            "longtitude": -79.64693365,
+            "latitude": 43.19581756
+        }, {
+            "name": "Fifty Rd. Cascade",
+            "city": "Stoney Creek",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Stoney Creek-Winona",
+            "HEIGHT_IN_M": 10,
+            "WIDTH_IN_M": 1.2,
+            "OWNERSHIP": "public",
+            "address": "Fifty Rd.",
+            "longtitude": -79.64443392,
+            "latitude": 43.19531972
+        }, {
+            "name": "East of Fifty Falls",
+            "city": "Stoney Creek",
+            "TYPE": "Waterfall",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Stoney Creek-Winona",
+            "HEIGHT_IN_M": 10,
+            "WIDTH_IN_M": 1.5,
+            "OWNERSHIP": "private",
+            "address": "Fifty Rd.",
+            "longtitude": -79.64141506,
+            "latitude": 43.19492372
+        }, {
+            "name": "Puddicombe Falls",
+            "city": "Stoney Creek",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Stoney Creek-Winona",
+            "HEIGHT_IN_M": 6,
+            "WIDTH_IN_M": 2,
+            "OWNERSHIP": "public",
+            "address": "Fifty Rd.",
+            "longtitude": -79.63794147,
+            "latitude": 43.1950535
+        }, {
+            "name": "Heritage Green Falls",
+            "city": "Hamilton",
+            "TYPE": "Waterfall",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Felker",
+            "HEIGHT_IN_M": 12.2,
+            "WIDTH_IN_M": 1.8,
+            "OWNERSHIP": "public",
+            "address": "Ackland Street",
+            "longtitude": -79.78751974,
+            "latitude": 43.20472388
+        }, {
+            "name": "Middle Glendale Falls",
+            "city": "Hamilton",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Red Hill",
+            "HEIGHT_IN_M": 3.1,
+            "WIDTH_IN_M": 3.4,
+            "OWNERSHIP": "public",
+            "address": "Bruce Trail",
+            "longtitude": -79.80941236,
+            "latitude": 43.20249557
+        }, {
+            "name": "Mountain Spring Falls",
+            "city": "Hamilton",
+            "TYPE": "Waterfall",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Felker",
+            "HEIGHT_IN_M": 15,
+            "WIDTH_IN_M": 2.4,
+            "OWNERSHIP": "public",
+            "address": "Ackland Street",
+            "longtitude": -79.78795476,
+            "latitude": 43.20451238
+        }, {
+            "name": "Valley Falls",
+            "city": "Flamborough",
+            "TYPE": "Waterfall",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Borer's",
+            "HEIGHT_IN_M": 4.3,
+            "WIDTH_IN_M": 4.3,
+            "OWNERSHIP": "public",
+            "address": "Bruce Trail at Valley Road",
+            "longtitude": -79.92825322,
+            "latitude": 43.2974896
+        }, {
+            "name": "Pritchard Falls",
+            "city": "Hamilton",
+            "TYPE": "Waterfall",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Red Hill",
+            "HEIGHT_IN_M": 4.5,
+            "WIDTH_IN_M": 1,
+            "OWNERSHIP": "public",
+            "address": "Mountain Brow Blvd. / King's Forest Park",
+            "longtitude": -79.81633222,
+            "latitude": 43.20110862
+        }, {
+            "name": "Billy Monkley Cascade",
+            "city": "Hamilton",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Red Hill",
+            "HEIGHT_IN_M": 3,
+            "WIDTH_IN_M": 6.4,
+            "OWNERSHIP": "public",
+            "address": "Chippewa Rail Trail via Rymal Road/Billy Monkley Bird Sanctuary",
+            "longtitude": -79.83044558,
+            "latitude": 43.19040318
+        }, {
+            "name": "Broman Falls",
+            "city": "Hamilton",
+            "TYPE": "Waterfall",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Red Hill",
+            "HEIGHT_IN_M": 7,
+            "WIDTH_IN_M": 1.1,
+            "OWNERSHIP": "public",
+            "address": "Bruce Trail Escarpment Rail Trail at Mohawk Sports Park",
+            "longtitude": -79.81600432,
+            "latitude": 43.214243
+        }, {
+            "name": "Baby Albion Falls",
+            "city": "Hamilton",
+            "TYPE": "Waterfall",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Red Hill",
+            "HEIGHT_IN_M": 8.5,
+            "WIDTH_IN_M": 1,
+            "OWNERSHIP": "public",
+            "address": "Mountain Brow Blvd. / King's Forest Park",
+            "longtitude": -79.81966153,
+            "latitude": 43.20016152
+        }, {
+            "name": "Lower Punchbowl Falls",
+            "city": "Stoney Creek",
+            "TYPE": "Waterfall",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Punchbowl",
+            "HEIGHT_IN_M": 6,
+            "WIDTH_IN_M": 6,
+            "OWNERSHIP": "public",
+            "address": "Mountain Ave.",
+            "longtitude": -79.75716844,
+            "latitude": 43.21120564
+        }, {
+            "name": "Devil's Punchbowl Falls",
+            "city": "Stoney Creek",
+            "TYPE": "Waterfall",
+            "RANKING": "A",
+            "CLUSTER_AREA": "Punchbowl",
+            "HEIGHT_IN_M": 37,
+            "WIDTH_IN_M": 3,
+            "OWNERSHIP": "public",
+            "address": "Ridge Rd. / Devil's Punchbowl CA",
+            "longtitude": -79.75590561,
+            "latitude": 43.21034548
+        }, {
+            "name": "Dewitt Falls",
+            "city": "Stoney Creek",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Stoney Creek-Fruitland",
+            "HEIGHT_IN_M": 7,
+            "WIDTH_IN_M": 2,
+            "OWNERSHIP": "public",
+            "address": "Dewitt Rd.",
+            "longtitude": -79.71843247,
+            "latitude": 43.20680717
+        }, {
+            "name": "Lower Little Falls",
+            "city": "Ancaster",
+            "TYPE": "Cascade",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Tiffany-Coldwater",
+            "HEIGHT_IN_M": 8.2,
+            "WIDTH_IN_M": 1.8,
+            "OWNERSHIP": "public",
+            "address": "Wilson St. E.",
+            "longtitude": -79.96575564,
+            "latitude": 43.23999849
+        }, {
+            "name": "Ancaster Heights Falls",
+            "city": "Ancaster",
+            "TYPE": "Cascade",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Tiffany-Coldwater",
+            "HEIGHT_IN_M": 13.4,
+            "WIDTH_IN_M": 1.8,
+            "OWNERSHIP": "public",
+            "address": "Wilson St. E.",
+            "longtitude": -79.96284102,
+            "latitude": 43.23973798
+        }, {
+            "name": "West Iroquoia Falls",
+            "city": "Hamilton",
+            "TYPE": "Waterfall",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Chedoke-Scenic",
+            "HEIGHT_IN_M": 19.8,
+            "WIDTH_IN_M": 1,
+            "OWNERSHIP": "public",
+            "address": "Hwy 403",
+            "longtitude": -79.94049199,
+            "latitude": 43.24439565
+        }, {
+            "name": "Sugar Shack Falls",
+            "city": "Dundas",
+            "TYPE": "Waterfall",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Borer's",
+            "HEIGHT_IN_M": 9,
+            "WIDTH_IN_M": 4,
+            "OWNERSHIP": "public",
+            "address": "Rock Chapel Rd. / Rock Chapel Sanctuary",
+            "longtitude": -79.93754073,
+            "latitude": 43.28449266
+        }, {
+            "name": "Progreston Falls",
+            "city": "Flamborough",
+            "TYPE": "Waterfall",
+            "RANKING": "A",
+            "CLUSTER_AREA": "Bronte",
+            "HEIGHT_IN_M": 6.7,
+            "WIDTH_IN_M": 16.5,
+            "OWNERSHIP": "private",
+            "address": "Progreston Rd.",
+            "longtitude": -79.95992137,
+            "latitude": 43.39810058
+        }, {
+            "name": "Great Falls",
+            "city": "Flamborough",
+            "TYPE": "Waterfall",
+            "RANKING": "A",
+            "CLUSTER_AREA": "Grindstone",
+            "HEIGHT_IN_M": 10,
+            "WIDTH_IN_M": 5,
+            "OWNERSHIP": "public",
+            "address": "Mill St / Smokey Hollow Resource Management Area",
+            "longtitude": -79.88723848,
+            "latitude": 43.33054059
+        }, {
+            "name": "Grindstone Cascade",
+            "city": "Flamborough",
+            "TYPE": "Cascade",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Grindstone",
+            "HEIGHT_IN_M": 3,
+            "WIDTH_IN_M": 5,
+            "OWNERSHIP": "public",
+            "address": "Mill St / Smokey Hollow Resource Management Area",
+            "longtitude": -79.88691914,
+            "latitude": 43.32843944
+        }, {
+            "name": "Borer's Falls",
+            "city": "Flamborough",
+            "TYPE": "Waterfall",
+            "RANKING": "A",
+            "CLUSTER_AREA": "Borer's",
+            "HEIGHT_IN_M": 15,
+            "WIDTH_IN_M": 5,
+            "OWNERSHIP": "public",
+            "address": "Rock Chapel Rd. / Rock Chapel Sanctuary",
+            "longtitude": -79.93678673,
+            "latitude": 43.29381436
+        }, {
+            "name": "Lower Sydenham Falls",
+            "city": "Dundas",
+            "TYPE": "Waterfall",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Sydenham",
+            "HEIGHT_IN_M": 4,
+            "WIDTH_IN_M": 4,
+            "OWNERSHIP": "private",
+            "address": "Livingstone Dr. / Cascades Park",
+            "longtitude": -79.95835345,
+            "latitude": 43.27395968
+        }, {
+            "name": "Tew's Falls",
+            "city": "Flamborough",
+            "TYPE": "Waterfall",
+            "RANKING": "A",
+            "CLUSTER_AREA": "Spencer-Logie's",
+            "HEIGHT_IN_M": 41,
+            "WIDTH_IN_M": 9,
+            "OWNERSHIP": "public",
+            "address": "Harvest Rd. / Spencer Gorge / Webster's Falls CA",
+            "longtitude": -79.97826607,
+            "latitude": 43.28071262
+        }, {
+            "name": "Webster's Falls",
+            "city": "Flamborough",
+            "TYPE": "Waterfall",
+            "RANKING": "A",
+            "CLUSTER_AREA": "Spencer-Logie's",
+            "HEIGHT_IN_M": 22,
+            "WIDTH_IN_M": 30,
+            "OWNERSHIP": "public",
+            "address": "Fallsview Rd. / Spencer Gorge / Webster's Falls CA",
+            "longtitude": -79.98091776,
+            "latitude": 43.27617096
+        }, {
+            "name": "Baby Webster's Falls",
+            "city": "Flamborough",
+            "TYPE": "Waterfall",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Spencer-Logie's",
+            "HEIGHT_IN_M": 9,
+            "WIDTH_IN_M": 3,
+            "OWNERSHIP": "public",
+            "address": "Fallsview Rd. / Spencer Gorge / Webster's Falls CA",
+            "longtitude": -79.98189946,
+            "latitude": 43.27568445
+        }, {
+            "name": "Darnley Cascade",
+            "city": "Flamborough",
+            "TYPE": "Cascade",
+            "RANKING": "A",
+            "CLUSTER_AREA": "Spencer-Logie's",
+            "HEIGHT_IN_M": 4,
+            "WIDTH_IN_M": 22,
+            "OWNERSHIP": "public",
+            "address": "Crooks Hollow Rd / Darnley Mill ruins",
+            "longtitude": -80.0067934,
+            "latitude": 43.27720899
+        }, {
+            "name": "Dundas Falls",
+            "city": "Dundas",
+            "TYPE": "Waterfall",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Spencer-Logie's",
+            "HEIGHT_IN_M": 6.4,
+            "WIDTH_IN_M": 6.7,
+            "OWNERSHIP": "private",
+            "address": "King St.",
+            "longtitude": -79.97215887,
+            "latitude": 43.27304004
+        }, {
+            "name": "Mineral Springs Falls",
+            "city": "Ancaster",
+            "TYPE": "Cascade",
+            "RANKING": "B",
+            "CLUSTER_AREA": "DV-Sulphur",
+            "HEIGHT_IN_M": 3,
+            "WIDTH_IN_M": 2,
+            "OWNERSHIP": "private",
+            "address": "Must view from owner's driveway only",
+            "longtitude": -80.01244495,
+            "latitude": 43.23636803
+        }, {
+            "name": "Hermitage Cascade",
+            "city": "Ancaster",
+            "TYPE": "Cascade",
+            "RANKING": "B",
+            "CLUSTER_AREA": "DV-Sulphur",
+            "HEIGHT_IN_M": 4,
+            "WIDTH_IN_M": 5,
+            "OWNERSHIP": "public",
+            "address": "Sulphur Springs Rd. / Hermitage ruins",
+            "longtitude": -79.99803536,
+            "latitude": 43.23636879
+        }, {
+            "name": "Heritage Falls",
+            "city": "Ancaster",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "DV-Sulphur",
+            "HEIGHT_IN_M": 5,
+            "WIDTH_IN_M": 3,
+            "OWNERSHIP": "public",
+            "address": "Sulphur Springs Rd. / Hermitage ruins",
+            "longtitude": -80.00377795,
+            "latitude": 43.23993975
+        }, {
+            "name": "Mill Falls",
+            "city": "Ancaster",
+            "TYPE": "Waterfall",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Ancaster-Sulphur",
+            "HEIGHT_IN_M": 7,
+            "WIDTH_IN_M": 4,
+            "OWNERSHIP": "private",
+            "address": "Old Dundas Rd. / Old Mill Rest.",
+            "longtitude": -79.97389756,
+            "latitude": 43.23335437
+        }, {
+            "name": "Lower Mill Falls",
+            "city": "Ancaster",
+            "TYPE": "Cascade",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Ancaster-Sulphur",
+            "HEIGHT_IN_M": 6,
+            "WIDTH_IN_M": 4,
+            "OWNERSHIP": "private",
+            "address": "Old Dundas Rd. / Old Mill Rest.",
+            "longtitude": -79.97351743,
+            "latitude": 43.23399029
+        }, {
+            "name": "Canterbury Falls",
+            "city": "Ancaster",
+            "TYPE": "Cascade",
+            "RANKING": "B",
+            "CLUSTER_AREA": "Ancaster-Sulphur",
+            "HEIGHT_IN_M": 9,
+            "WIDTH_IN_M": 4,
+            "OWNERSHIP": "public",
+            "address": "Old Dundas Rd.",
+            "longtitude": -79.98069671,
+            "latitude": 43.23698099
+        }, {
+            "name": "Little Canterbury Falls",
+            "city": "Ancaster",
+            "TYPE": "Cascade",
+            "RANKING": "C",
+            "CLUSTER_AREA": "Ancaster-Sulphur",
+            "HEIGHT_IN_M": 5,
+            "WIDTH_IN_M": 2,
+            "OWNERSHIP": "public",
+            "address": "Old Dundas Rd.",
+            "longtitude": -79.98002079,
+            "latitude": 43.23689392
+        }, {
+            "name": "Sherman Falls",
+            "city": "Ancaster",
+            "TYPE": "Waterfall",
+            "RANKING": "A",
+            "CLUSTER_AREA": "Ancaster-Sulphur",
+            "HEIGHT_IN_M": 17,
+            "WIDTH_IN_M": 8,
+            "OWNERSHIP": "private",
+            "address": "Lions Club Rd.",
+            "longtitude": -79.97293085,
+            "latitude": 43.23811814
+        }];
+
+        function loadMapScenario(location) {
+
+            Microsoft.Maps.loadModule('Microsoft.Maps.AutoSuggest', function() {
+                var options = {
+                    maxResults: 1,
+                    map: map
+                };
+                var manager = new Microsoft.Maps.AutosuggestManager(options);
+                manager.attachAutosuggest('#searchBox', '#searchBoxContainer', selectedSuggestion);
+            });
+
+            function selectedSuggestion(suggestionResult) {
+
+                map.setView({
+                    bounds: suggestionResult.bestView,
+                    zoom: 17
+                });
+                var pushpin = new Microsoft.Maps.Pushpin(suggestionResult.location);
+                map.entities.push(pushpin);
+                document.getElementById('printoutPanel').innerHTML =
+                    'Waterfall of : ' + suggestionResult.formattedSuggestion +
+                    '<br> Lat: ' + suggestionResult.location.latitude +
+                    '<br> Long: ' + suggestionResult.location.longitude;
+					
+					var lnt = suggestionResult.location.latitude;
+					var lng = suggestionResult.location.longitude;
+					 
+      
+       document.getElementById("demo").innerHTML = lnt;
+	   document.getElementById("demo").innerHTML = lng;
+	   
+     
+            }
+			 
+			 Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function() {
+                //Create an instance of the directions manager.
+			 
+                 
+                    
+                directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
+				directionsManager.setRequestOptions({ routeMode: Microsoft.Maps.Directions.RouteMode.transit });
+    var waypoint1 = new Microsoft.Maps.Directions.Waypoint({ address: document.getElementById('datastart').value, location: document.getElementById('datastart').value });
+    var waypoint2 = new Microsoft.Maps.Directions.Waypoint({ address: document.getElementById('dataend').value, location: document.getElementById('dataend').value  });
+    directionsManager.addWaypoint(waypoint1);   
+    directionsManager.addWaypoint(waypoint2);
+    
+    directionsManager.setRenderOptions({ itineraryContainer: document.getElementById('printoutPanel') });
+    directionsManager.calculateDirections();
+                
+                directionsManager.setRenderOptions({ itineraryContainer: '#directionsItinerary' });
+                
+                directionsManager.showInputPanel('directionsPanel');
+            });   
+		
+			 
+
+			
+            var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {});
+
+            for (var i = 0; i < pushpinInfos.length; i++) {
+			
+			
+			
+                var pushpin = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(pushpinInfos[i].latitude, pushpinInfos[i].longtitude), {
+                    icon: 'https://www.bingmapsportal.com/Content/images/poi_custom.png',
+                    anchor: new Microsoft.Maps.Point(12, 39)
+                });
+                var infobox = new Microsoft.Maps.Infobox(pushpin.getLocation(), {
+                    visible: false,
+                    autoAlignment: true
+                });
+                infobox.setMap(map);
+				
+				
+				
+				 
+				
+                pushpin.metadata = {
+                    title: pushpinInfos[i].name,
+                    description: " <strong>Address:</strong>" + pushpinInfos[i].address + " <br> <strong>City:</strong>" + pushpinInfos[i].city + "<br> <strong>Cluster area:</strong> " + pushpinInfos[i].CLUSTER_AREA + " " + pushpinInfos[i].CLUSTER_AREA + "<br> <strong>OWNERSHIP:</strong> " + pushpinInfos[i].OWNERSHIP +  
+                        '<img src="waterfall.png" alt="waterfall" height="60" width="60" style="float:right; ">'  
+                
+				
+
+				
+				
+				};
+
+                Microsoft.Maps.Events.addHandler(pushpin, 'click', function(args) {
+
+                    infobox.setOptions({
+                        location: args.target.getLocation(),
+                        title: args.target.metadata.title,
+                        description: args.target.metadata.description,
+
+                        visible: true
+                    })
+                    viewMetadata(args.target.metadata);
+
+                })
+
+                map.entities.push(pushpin);
+
+            }
+
+            var map1 = new Microsoft.Maps.Map('#userlocation', {});
+            //Request the user's location
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var loc = new Microsoft.Maps.Location(
+                    position.coords.latitude,
+                    position.coords.longitude);
+                //Add a pushpin at the user's location.
+                var pin = new Microsoft.Maps.Pushpin(loc);
+                map1.entities.push(pin);
+                //Center the map on the user's location.
+                map1.setView({
+                    center: loc,
+                    zoom: 15
+                });
+            });
+
+            function viewMetadata(metadata) {
+                document.getElementById("LocationInfo").innerHTML = " <strong>Name:</strong> " + metadata.title + "<br/><br/>" + metadata.description;
+				document.getElementById("toTbx").value = metadata.title ;
+            }
+
+        }
+		 
+    </script>
+<script>
+function myFunction() {
+  var copyText = document.getElementById("toTbx");
+  copyText.select();
+  document.execCommand("copy");
+  alert("Copied " + copyText.value);
+}
+</script>
+    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=Au_XHmIB-5bDRoMBwyoqbiyVuKYcZ9SPuq3_G_1syMU7agEhMofRAQbEeeUnUBJe&callback=loadMapScenario' async defer></script>
+
+</head>
+
+<body data-gr-c-s-loaded="true" style="" onload="startIntro();">
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="waterfall.png" alt="waterfall" height="40" width="40" style="float:left; ">Waterfall Finder</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav in" id="side-menu">
+                        <li class="sidebar-search">
+                            <div id="step2" class="input-group custom-search-form">
+
+                                <div id='searchBoxContainer'>
+                                    <input type='text' class="form-control" id='searchBox' placeholder="Search..." />
+                                </div>
+
+                            </div>
+
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+						 
+                            <div id='printoutPanel'></div>
+							 
+          
+          
+                        </li>
+                        <li>
+                            <a href="index.html" class="active"><i class="fa fa-dashboard fa-fw"></i> Home </a>
+                        </li>
+                        <li>
+                            <a href="direction.html"> Navigation Panel </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper" style="min-height: 887px;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Search Beauty of City Here</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Waterfall location
+                            <div class="pull-right">
+                                <div class="btn-group">
+
+                                    <button class="btn btn-default btn-xs dropdown-toggle" href="javascript:void(0);" onclick="startIntro();">START WEBSITE TOUR</button>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div id="step1" class="panel-body">
+
+                            <div id="myMap" style="position: relative;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);height: 650px;">
+
+                            </div>
+
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+					<div id="step5" class="panel panel-green">
+                                    <div class="panel-heading">
+                                        Sharing is Caring
+                                    </div>
+                                    <div class="panel-body">
+                                        <p>
+                                            <div class="text-center">
+
+                                                <a class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
+                                                <a class="btn btn-social-icon btn-flickr"><i class="fa fa-flickr"></i></a>
+                                                <a class="btn btn-social-icon btn-google-plus"><i class="fa fa-google-plus"></i></a>
+                                                <a class="btn btn-social-icon btn-instagram"><i class="fa fa-instagram"></i></a>
+                                                <a class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
+
+                                            </div>
+											
+                                        </p>
+                                    </div>
+                                    <div class="panel-footer">
+
+                                    </div>
+                                </div>
+                    <!-- /.panel -->
+
+                </div>
+				
+                <!-- /.col-lg-8 -->
+                <div class="col-lg-4">
+                    <div class="panel panel-default" style="
+    height: 1060px;
+">
+                        <div class="panel-heading">
+                            <i class="fa fa-bell fa-fw"></i>Information Box</div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="list-group" style="
+    height: 630px;
+">
+                                <div id="step3" class="panel panel-green">
+                                    <div class="panel-heading">
+                                        Waterfall Details
+                                    </div>
+                                    <div class="panel-body">
+
+                                        <div style="float:left;width:300px;margin:0 0 0 10px;">
+
+                                            <div id="LocationInfo">Click on pushpin to view detail of waterfall</div>
+                                        </div>
+
+                                    </div>
+                                    <div class="panel-footer">
+
+                                    </div>
+                                </div>
+                                <div id="step4" class="panel panel-green">
+                                    <div class="panel-heading">
+                                        Navigation
+                                    </div>
+                                    <div class="panel-body">
+                                        <h4>You are here</h4>
+                                        <div id="userlocation" class="panel-body" style="position:relative;width:100%;height: 280px;"></div>
+                                        <br>
+                                        <hr class="style1">
+                                        <br>
+                                       
+										 
+ 
+    
+    <div class="form-group">
+      <label for="pwd">Your Waterfall Location</label>
+      <input type="waterfallloc" class="form-control" id="toTbx">
+    </div>
+	<button onclick="myFunction()" class="btn btn-outline btn-primary btn-lg btn-block">Copy Waterfall Name</button>
+	 <a href="direction.html" class="btn btn-outline btn-primary btn-lg btn-block" role="button" >Start Navigation</a>
+  
+                                    </div>
+
+                                    <div class="panel-footer">
+
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                            <!-- /.list-group -->
+
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+
+                </div>
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    <footer id="sitefooter" class="row">
+        <div class="container text-center">
+            <h3>Design and develop by harsh suthar | 000743543</h3>
+
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="../vendor/raphael/raphael.min.js"></script>
+    <script src="../vendor/morrisjs/morris.min.js"></script>
+    <script src="../data/morris-data.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script type='text/javascript'>
+        var map;
+        var directionsManager;
+        function GetMap()
+        {
+            map = new Microsoft.Maps.Map('#myMap', {}); 
+            //Load the directions module.
+            Microsoft.Maps.loadModule('Microsoft.Maps.Directions', function() {
+                //Create an instance of the directions manager.
+			 
+                 
+                    
+                directionsManager = new Microsoft.Maps.Directions.DirectionsManager(map);
+				directionsManager.setRequestOptions({ routeMode: Microsoft.Maps.Directions.RouteMode.transit });
+    var waypoint1 = new Microsoft.Maps.Directions.Waypoint({ address: document.getElementById('datastart').value, location: document.getElementById('datastart').value });
+    var waypoint2 = new Microsoft.Maps.Directions.Waypoint({ address: document.getElementById('dataend').value, location: document.getElementById('dataend').value  });
+    directionsManager.addWaypoint(waypoint1);   
+    directionsManager.addWaypoint(waypoint2);
+    
+    directionsManager.setRenderOptions({ itineraryContainer: document.getElementById('printoutPanel') });
+    directionsManager.calculateDirections();
+                
+                directionsManager.setRenderOptions({ itineraryContainer: '#directionsItinerary' });
+                
+                directionsManager.showInputPanel('directionsPanel');
+            }); 
+        }
+    </script>
+    <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=Ag-9UmaOu3hCq2d2bxFTnt2ryCnUmD81o8_dEMuHCqbAFJ0TMwiY1IuhzPUjRaC6' async defer></script>
+    <style>
+        html, body{
+            padding:0;
+            margin:0;
+            height:100%;
+        } 
+        .directionsContainer{
+            width:380px;
+            height:100%;
+            overflow-y:auto;
+            float:left;
+        }
+        #myMap{
+            position:relative;
+            width:calc(100% - 380px);
+            height:100%;
+            float:left;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="directionsContainer">
+        <div id="directionsPanel"></div>
+        <div id="directionsItinerary"></div>
+    </div>
+	<div id="datastart"></div>
+	<div id="dataend"></div>
+    <div id="myMap"></div>
+</body>
+</html>
